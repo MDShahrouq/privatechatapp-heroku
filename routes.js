@@ -12,9 +12,13 @@ var gravatar = require('gravatar');
 module.exports = function(app,io){
 
 	app.get('/', function(req, res){
+// Generate unique id for the room
+		var id = Math.round((Math.random() * 1000000));
 
+		// Redirect to the random room
+		res.redirect('/chat/'+id);
 		// Render views/home.html
-		res.render('home');
+		// res.render('chat');
 	});
 
 	app.get('/create', function(req,res){
